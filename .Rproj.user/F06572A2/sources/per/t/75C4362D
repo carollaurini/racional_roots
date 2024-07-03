@@ -1,9 +1,9 @@
 {
     "id": "75C4362D",
-    "path": "C:/Users/carol/Desktop/TextMining/rational_roots/general_script_optimized.R",
+    "path": "C:/Users/carol/Desktop/rational_roots/general_script_optimized.R",
     "project_path": "general_script_optimized.R",
     "type": "r_source",
-    "hash": "3722854923",
+    "hash": "3890054212",
     "contents": "",
     "dirty": false,
     "created": 1717114967207.0,
@@ -13,15 +13,15 @@
         "tempName": "Untitled1",
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "49,21",
-        "scrollLine": "50"
+        "cursorPosition": "4,32",
+        "scrollLine": "15"
     },
     "folds": "",
-    "lastKnownWriteTime": 1717449592,
+    "lastKnownWriteTime": 1720010999,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1717449592126,
+    "last_content_update": 1720010999,
     "read_only": false,
     "read_only_alternatives": []
 }

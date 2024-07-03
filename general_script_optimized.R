@@ -1,7 +1,8 @@
 library(phonTools)
 library(data.table)
 library(dplyr)
-
+#Author : Ana C. Laurini Malara
+############################################## Some functions Tested #######################################################################
 #1+2*(cos(2*pi* x)+ cos(2*pi* y)+cos(2*pi*(x+y))+cos(4*pi* x)+cos(2*pi*(2*x+y))+cos(2*pi*(x+2*y))+cos(2*pi*(2*x+2*y)))
 #1+2*cos(2*pi *x)+2*cos(2*pi *y)+2*cos(2*pi*(x+y))
 #1+2*(cos(2*pi* x) +cos(4*pi* x)+ cos(2*pi* y)+cos(4*pi* y)+cos(2*pi*(x+y))+cos(2*pi*(x+2*y))+cos(2*pi*(x-y)) +cos(2*pi*(x-2*y))+cos(2*pi* (2*x+y))+cos(2*pi*(2*x-y)))
@@ -16,9 +17,16 @@ library(dplyr)
 
 #1+2*cos(2*pi *y) +4*cos(2*pi *y)*(cos(2*pi *x)+cos(4*pi *x))
 #1+2*cos(2*pi *y) +2*cos(2*pi *x)+4*cos(2*pi *y)*(cos(2*pi *x)+cos(4*pi *x))
-d_bind =data.frame(fraction = c(), decimais = c())
 
-for(laticce in 1:100){
+########################################## Choose your gap for the fractions ###############################################################
+denominator_gap=100 ##3045 fractions
+######################################### Input you Function here ##########################################################################
+expression <- function(x,y) { 1+2*cos(2*pi *y) + 2*cos(2*pi *x) }
+
+
+############################################################################################################################################
+d_bind =data.frame(fraction = c(), decimais = c())
+for(laticce in 1:denominator_gap){
   sequencia = seq(0,1,1/laticce)
   fraction =c("0")
   nominator=c(0)
@@ -33,7 +41,7 @@ for(laticce in 1:100){
   d_bind = rbind(d_bind,d_factors)
 }
 d_bind = d_bind[!duplicated(d_bind[,c('nominator','denominator')]),] %>% arrange(nominator,denominator)
-print(d_bind %>% nrow()) #3045 fractions
+print(d_bind %>% nrow()) 
 
 
 
@@ -44,8 +52,9 @@ j=1
 
 for(x in d_bind$decimais){
   for(y in d_bind$decimais){
-    z=eval(1+2*cos(2*pi *x)+2*cos(2*pi *y)+2*cos(2*pi*(x+y)))
-    if(-10^(-14) <z && z <10^(-14)){
+    
+    z=eval(expression(x,y))
+    if(-10^(-14) <z && z <10^(-14) ){
       print(paste("x,y,z:", x,y,z))
         zero_x[j] = x
         zero_y[j] = y
